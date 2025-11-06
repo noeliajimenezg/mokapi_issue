@@ -1,0 +1,25 @@
+server:
+  http:
+    enabled: true
+    port: 8080
+  kafka:
+    enabled: true
+    clusters:
+      - name: cluster1
+        brokers: ["localhost:9092"]
+        topics:
+          - name: cluster1-topic
+            partitions: 3
+      - name: cluster2  
+        brokers: ["localhost:9094"]
+        topics:
+          - name: cluster2-topic
+            partitions: 2
+
+providers:
+  file:
+    enabled: true
+    directory: /app/config
+
+logging:
+  level: info
